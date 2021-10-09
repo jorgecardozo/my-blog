@@ -1,4 +1,8 @@
 class ArticlesController < ApplicationController
+  #Authentication
+  before_action :authenticate_author!, except: [:index, :show]
+  before_action :correct_author, only: [:edit, :update, :destroy]
+
   def index
     @articles = Article.all.order("created_at DESC")
   end
@@ -6,11 +10,11 @@ class ArticlesController < ApplicationController
   # Stores data in memory
   def new
     @button = "Create"
-    @article = Article.new
+    @article = current_author.articles.build
   end
   # Stores data in database
   def create
-    @article = Article.new(article_params)
+    @article = current_author.articles.build(article_params)
     if @article.save
       redirect_to @article
     else
@@ -49,6 +53,11 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :content)
+  end
+
+  def correct_author
+    @article = current_author.articles.find_by(id: params[:id])
+    redirect_to articles_path, notice: "You are not authorized to edit this article." if @article.nil?
   end
 
 end
