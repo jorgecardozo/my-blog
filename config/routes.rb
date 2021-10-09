@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :authors
   #get 'articles/new'
   #get 'articles/index'
   resources :articles
