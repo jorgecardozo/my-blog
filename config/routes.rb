@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  #get 'articles/new'
+  #get 'articles/index'
+  resources :articles
+  
   get 'estaticas/contacto'
   get 'estaticas/nosotros'
   get 'estaticas/otra'

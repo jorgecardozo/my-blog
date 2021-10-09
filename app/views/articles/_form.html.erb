@@ -1,0 +1,21 @@
+<%= form_for @article do |f| %>
+
+    <% if @article.errors.any?  %>
+        <div id="errors">
+            <h2> errors: </h2>
+            <ul>
+                <% @article.errors.full_messages.each do |msg| %>
+                <li> <%= msg %> </li>
+                <%end%>
+            </ul>
+        </div>
+    <%end%>
+
+    <%= f.label :title %> <br>
+    <%= f.text_field :title %> <br>
+   
+    <%= f.label :content %> <br>
+    <%= f.text_area :content %> <br>
+
+    <%= f.submit "#{@button} Article" %> 
+<%end%>

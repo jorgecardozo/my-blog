@@ -1,0 +1,6 @@
+<h1>Articles#index</h1>
+<% @articles.each do |art| %>
+    <h2> <%= link_to art.title, art %></h2>
+    <p> <%= art.created_at.strgtime("%d-%m-%Y") %></p>
+    <p> <%= art.content.truncate_words(30) %></p>
+<%end%>
