@@ -7,3 +7,9 @@
     <%= link_to "Edit", edit_article_path(@article)%>
     <%= link_to "Delete", @article, :method => :delete, data: {confirm: "Are you sure you want to delete the article?"} %>
 <% end %>    
+
+<p><% @article.comment.count %> Commets</p>
+<%= render @article.comment %>
+<br>
+<p>Make a comment</p>
+<%= render 'comments/form' %>

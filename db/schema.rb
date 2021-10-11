@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_035709) do
+ActiveRecord::Schema.define(version: 2021_10_10_210713) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -33,5 +33,15 @@ ActiveRecord::Schema.define(version: 2021_10_09_035709) do
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "name"
+    t.string "text"
+    t.integer "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
   add_foreign_key "articles", "authors"
+  add_foreign_key "comments", "articles"
 end

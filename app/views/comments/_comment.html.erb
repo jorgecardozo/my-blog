@@ -1,0 +1,7 @@
+<div>
+    <p><%= comment.name %></p>
+    <p><%= comment.text %></p>
+    <p> Create at <%= comment.created_at.strftime("%d-%m-%Y") %></p>
+    <%= link_to "Delete", [comment.article, comment], :method => :delete, data: {confirm: "Are you sure you want to delete the article?"} %>
+
+</div>
