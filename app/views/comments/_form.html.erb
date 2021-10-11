@@ -1,15 +1,18 @@
 <%= form_for([@article, @article.comment.build]) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_area :name %>
+  <div class="mb-3">
+    <div class="field">
+      <%= f.label :name, class: "form-label" %>
+      <%= f.text_area :name, class: "form-control"%>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :text %>
-    <%= f.text_field :text %>
+  <div class="mb-3">
+    <div class="field">
+      <%= f.label :text, class: "form-label" %>
+      <%= f.text_field :text, class:"form-control" %>
+    </div>
   </div>
-
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Publish", class: "btn btn-primary" %>
   </div>
 <% end %>
+

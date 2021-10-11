@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   get 'estaticas/contacto'
   get 'estaticas/nosotros'
   get 'estaticas/otra'
-  get 'home/index'
-  root 'home#index'
+  #get 'home/index'
+  #root 'home#index'
+  root 'articles#index'
 
   get '*path' => redirect('/')
   

@@ -1,6 +1,37 @@
-<%= link_to 'Home', root_path %>
-<%= link_to 'Contacto', estaticas_contacto_path %>
-<%= link_to 'Nosotros', estaticas_nosotros_path %>
+<%#= link_to 'Home', root_path %>
+<%#= link_to 'Contacto', estaticas_contacto_path %>
+<%#= link_to 'Nosotros', estaticas_nosotros_path %>
 
-<%= link_to 'Sign Up', new_author_session_path %>
-<%= link_to 'Sign Out', destroy_author_session_path, method: :delete %>
+<%#= link_to 'Sign Up', new_author_session_path %>
+<%#= link_to 'Sign Out', destroy_author_session_path, method: :delete %>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Contacto', estaticas_contacto_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'Nosotros', estaticas_nosotros_path,class: "nav-link" %>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <% if !author_signed_in? %>
+            <%= link_to 'Sign Up', new_author_session_path, class: "btn btn-primary me-2" %>
+        <%else%>
+            <%= link_to 'New article', new_article_path, class: "btn btn-warning me-2"%>
+            <%= link_to 'Sign Out', destroy_author_session_path, class: "btn btn-danger",  method: :delete %>
+        <%end%>
+      </form>
+    </div>
+  </div>
+</nav>

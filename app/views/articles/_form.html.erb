@@ -10,12 +10,14 @@
             </ul>
         </div>
     <%end%>
+    <div class="mb-3">
+        <%= f.label :title ,class:"form-label" %>
+        <%= f.text_field :title ,class:"form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= f.label :content ,class:"form-label" %>
+        <%= f.text_area :content ,class:"form-control" %>
+    </div>
 
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %> <br>
-   
-    <%= f.label :content %> <br>
-    <%= f.text_area :content %> <br>
-
-    <%= f.submit "#{@button} Article" %> 
+    <%= f.submit "#{@button} Article" , class: "btn btn-primary"%> 
 <%end%>
